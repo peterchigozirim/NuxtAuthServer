@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MailController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ParcelController;
 use App\Http\Controllers\Api\LogParcelController;
@@ -21,4 +22,5 @@ Route::middleware(['auth:sanctum'])->group( function () {
     Route::apiResource('/user', UserController::class);
     Route::apiResource('/parcel', ParcelController::class);
     Route::apiResource('log-parcel', LogParcelController::class);
+    Route::apiResource('/mail', MailController::class);
 });
