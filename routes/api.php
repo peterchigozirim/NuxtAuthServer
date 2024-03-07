@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CreateUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MailController;
@@ -23,4 +24,5 @@ Route::middleware(['auth:sanctum'])->group( function () {
     Route::apiResource('/parcel', ParcelController::class);
     Route::apiResource('log-parcel', LogParcelController::class);
     Route::apiResource('/mail', MailController::class);
+    Route::apiResource('/manage-user', CreateUserController::class);
 });

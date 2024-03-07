@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('app_settings', function (Blueprint $table) {
             $table->id();
             $table->string('app_name');
+            $table->string('app_email');
             $table->string('app_logo');
-            $table->string('app_favico');
+            $table->string('app_phone');
+            $table->string('app_address');
+            $table->string('app_favicon');
             $table->longText('app_description');
             $table->timestamps();
         });
