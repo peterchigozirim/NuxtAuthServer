@@ -8,7 +8,7 @@ use App\Http\Requests\AppSettingRequest;
 use App\Models\AppSettings;
 use Intervention\Image\Laravel\Facades\Image;
 
-class AppSetting extends Controller
+class AppSettingController extends Controller
 {
     /**
      * Display a listing of the resource.
