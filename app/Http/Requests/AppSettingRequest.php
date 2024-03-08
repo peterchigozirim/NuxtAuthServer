@@ -23,8 +23,10 @@ class AppSettingRequest extends FormRequest
     {
         return [
             'app_name' =>'required|string',
-            'app_logo' =>'required|file|mimes:jpeg,png,jpg,gif,svg',
-            'app_favicon' =>'required|file|mimes:jpeg,png,jpg,gif,svg',
+            'app_short_name' =>'required|',
+            'app_email' =>'required|email',
+            'app_phone' =>'required|email',
+            'app_address' =>'required|email',
             'app_description' =>'required|string',
         ];
     }

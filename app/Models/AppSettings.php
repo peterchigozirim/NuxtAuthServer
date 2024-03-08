@@ -11,11 +11,10 @@ class AppSettings extends Model
 
     protected $fillable = [
         'app_name',
-        'app_logo',
+        'app_short_name',
         'app_email',
         'app_phone',
         'app_address',
-        'app_favicon',
         'app_description',
     ];
 }
