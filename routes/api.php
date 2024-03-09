@@ -21,6 +21,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 |
 */
 
+Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
 Route::middleware(['auth:sanctum'])->group( function () {
     Route::apiResource('/user', UserController::class);
     Route::apiResource('/parcel', ParcelController::class);
