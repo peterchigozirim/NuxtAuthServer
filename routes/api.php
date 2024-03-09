@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Api\AppSettingController;
-use App\Http\Controllers\Api\CreateUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MailController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ParcelController;
 use App\Http\Controllers\Api\LogParcelController;
+use App\Http\Controllers\Api\AppSettingController;
+use App\Http\Controllers\Api\CreateUserController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,6 @@ Route::middleware(['auth:sanctum'])->group( function () {
     Route::apiResource('/mail', MailController::class);
     Route::apiResource('/manage-user', CreateUserController::class);
     Route::apiResource('/app-settings', AppSettingController::class);
+
+    Route::post('/log-out', [AuthenticatedSessionController::class, 'destroy']);
 });
