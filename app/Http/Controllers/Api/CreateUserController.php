@@ -98,17 +98,6 @@ class CreateUserController extends Controller
      */
     public function destroy(string $id)
     {
-        try {
-            if (!Gate::allows('is_admin', Auth::user())) {
-                return response()->json([
-                    'message' => 'Unauthorized Access'
-                ],401);
-            }else{
-                User::find($id)->delete();
-                return response()->json(['message' => 'User Deleted Successfully'], 200);
-            }
-        } catch (\Throwable $th) {
-            return response()->json(['error' => $th->getMessage()], 400);
-        }
+        // 
     }
 }
