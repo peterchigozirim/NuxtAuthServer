@@ -30,7 +30,7 @@ class ParcelController extends Controller
     {
         try {
             $app = AppSettings::first();
-            $track_number = $app? $app->app_name : 'SWB-'.time();
+            $track_number = $app? $app->app_name.'-'.time() : 'SWB-'.time();
             $parcel = Parcel::create([
                     'tracking_number' => $track_number,
                     'sender_name' => $request->sender_name,
