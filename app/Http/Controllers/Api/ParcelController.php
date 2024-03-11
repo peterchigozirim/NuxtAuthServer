@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ParcelRequest;
+use App\Models\AppSettings;
 use App\Models\LogParcel;
 use App\Models\Parcel;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class ParcelController extends Controller
     public function store(ParcelRequest $request)
     {
         try {
-            $track_number = 'DEV-'.time();
+            $app = AppSettings::first();
+            $track_number = $app? $app->app_name : 'SWB-'.time();
             $parcel = Parcel::create([
                     'tracking_number' => $track_number,
                     'sender_name' => $request->sender_name,

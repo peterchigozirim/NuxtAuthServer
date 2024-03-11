@@ -25,6 +25,7 @@ class LogParcelRequest extends FormRequest
             'activity' => 'required|string',
             'location' => 'required|string',
             'parcel_id' =>'required',
+            'status' =>'required',
         ];
     }
 }

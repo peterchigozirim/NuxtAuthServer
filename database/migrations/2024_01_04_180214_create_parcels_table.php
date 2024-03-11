@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('logitsic_type');
             $table->string('weight');
             $table->string('location');
-            $table->enum('status', ['pending','proccessing', 'delivered', 'cancelled'])->default('pending');
+            $table->enum('status', ['pending','proccessing', 'delivered', 'cancelled', 'onhold', 'ontransit'])->default('pending');
             $table->string('total_days');
             $table->string('deputuer_day');
             $table->string('arrival_day');
