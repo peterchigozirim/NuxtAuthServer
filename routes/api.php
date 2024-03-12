@@ -24,6 +24,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 Route::post('login', [AuthenticatedSessionController::class, 'store']);
 Route::post('/reset-password', [UserController::class, 'resetPassword']);
 Route::post('/get-otp', [UserController::class, 'resetOtp']);
+Route::post('/get-tracking-number', [ParcelController::class, 'getTrackNumber']);
 
 Route::middleware(['auth:sanctum'])->group( function () {
     Route::apiResource('/user', UserController::class);

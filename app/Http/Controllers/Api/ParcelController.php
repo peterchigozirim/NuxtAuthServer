@@ -23,6 +23,24 @@ class ParcelController extends Controller
         }
     }
 
+    public function getTrackNumber(Request $request)
+    {
+        try {
+            $request->validate([
+                'tracking_number' => 'required'
+            ]);
+            $get = Parcel::where('tracking_number', $request->tracking_number)->first();
+            if ($get) {
+                return response()->json($get, 200);
+            } else {
+                return response()->json('Tracking Number Not Found', 400);
+            }
+            
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th->getMessage()], 400);
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      */
