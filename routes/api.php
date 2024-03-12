@@ -7,7 +7,9 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ParcelController;
 use App\Http\Controllers\Api\LogParcelController;
 use App\Http\Controllers\Api\AppSettingController;
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\CreateUserController;
+use App\Http\Controllers\Api\QuoteController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
@@ -25,6 +27,9 @@ Route::post('login', [AuthenticatedSessionController::class, 'store']);
 Route::post('/reset-password', [UserController::class, 'resetPassword']);
 Route::post('/get-otp', [UserController::class, 'resetOtp']);
 Route::post('/get-tracking-number', [ParcelController::class, 'getTrackNumber']);
+Route::post('/request-quote', [QuoteController::class, 'store']);
+Route::post('/contact-us', [ContactController::class, 'store']);
+Route::get('/app-details', [AppSettingController::class, 'index']);
 
 Route::middleware(['auth:sanctum'])->group( function () {
     Route::apiResource('/user', UserController::class);
@@ -33,6 +38,8 @@ Route::middleware(['auth:sanctum'])->group( function () {
     Route::apiResource('/mail', MailController::class);
     Route::apiResource('/manage-user', CreateUserController::class);
     Route::apiResource('/app-settings', AppSettingController::class);
+    Route::apiResource('/quote', QuoteController::class);
+    Route::apiResource('/contact', ContactController::class);
 
     Route::post('/change-password', [UserController::class, 'changePassword']);
     Route::post('/log-out', [AuthenticatedSessionController::class, 'destroy']);

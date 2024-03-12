@@ -14,6 +14,9 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/api/reset-password',
         '/api/get-otp',
-        '/api/get-tracking-number'
+        '/api/get-tracking-number',
+        '/api/request-quote',
+        '/api/contact-us',
+        '/api/app-details',
     ];
 }
